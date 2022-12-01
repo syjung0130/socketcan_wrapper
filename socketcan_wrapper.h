@@ -12,6 +12,7 @@ int open_port(const char *port);
 */
 int read_frame_blocked(struct can_frame *frame_rd);
 
+void stop_read_frame_blocked();
 
 /* check writing hard-coded message */
 void write_port_test();
