@@ -9,7 +9,7 @@
 #include "socketcan_wrapper.h"
 
 static int s_sock;
-static int s_blocked_read_used;
+static int s_blocked_read_used = 0;
 
 int open_port(const char *port)
 {
@@ -63,6 +63,7 @@ int read_frame_blocked(struct can_frame *frame_rd)
     memset(frame_rd, 0, sizeof(struct can_frame));
 
     s_blocked_read_used = 1;
+    
     while (s_blocked_read_used)
     {
         struct timeval timeout = {1, 0};
