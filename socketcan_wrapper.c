@@ -87,6 +87,11 @@ int read_frame_blocked(struct can_frame *frame_rd)
     return n_recv_bytes;
 }
 
+void stop_read_frame_blocked()
+{
+    s_blocked_read_used = 0;
+}
+
 /*
  https://en.wikipedia.org/wiki/SocketCAN
 */
